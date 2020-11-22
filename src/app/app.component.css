@@ -1,0 +1,24 @@
+
+.navbar-custom {
+ 
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: white;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: rgb(110, 110, 110);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: white;
+}
+
+.dropdown-item:hover{
+  background-color: gray;
+
+}
