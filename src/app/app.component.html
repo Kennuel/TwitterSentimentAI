@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row fixed-top slide-in-top noselect" style="background-color: #2f2f2f;">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+      <div class="navbar-brand" style="color: white; padding-left: 5px;">
+        <a class="nav-link" style="color: white" href="https://github.com/Kennuel">
+          Hendrik&nbsp;Wiechula
+        </a>
+      </div>
+      <button style="color: white;" class="navbar-toggler navbar-custom bg-light " type="button" data-toggle="collapse"
+        data-target="#navbarNav" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="padding-left: 10px; background-color: #2f2f2f; ">
+        <ul class="navbar-nav" style="padding-bottom: 3px">
+          <li class=" nav-item" style="cursor: pointer; padding: 3px ">
+            <a class="nav-link" href="https://github.com/Kennuel"><i class="fab fa-github"></i></a>
+          </li>
+          <li class="nav-item" style="cursor: pointer; padding: 3px">
+            <a class="nav-link" href="https://stackoverflow.com/users/12579430/kennuel"><i
+                class="fab fa-stack-overflow"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row" style="margin-top: 40px; height: 60px;"></div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h1>Tweet Sentiment: Airlines</h1>
+      <h3>Check if a tweet is positive or negative!</h3>
+      <p>This projects demonstrates how an artifical intelligence is able to identify wether a tweet's sentiment is rather positive or negative.
+      Please enter in this textarea an english tweet, which is intended to be positive or negative.
+      You can only use up to 280 characters.</p>
+      <small class="text-muted" style="margin-top: 15px;">e.g.</small><br>
+      <small class="lead">"I already waited for 3 hours!"</small><br>
+      <small class="lead">"I love flying with you."</small><br>
+      <small class="lead">"Why is this happening to me?"</small><br>
+      <small class="lead">"Throwing out a passenger is not nice!"</small><br>
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="alert alert-danger" role="alert" *ngIf="showAlert">
+        Only 280 characters allowed!
+      </div>
+    </div>
+  </div>
+  
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-3"></div>
+    <div class="col-5"><textarea rows="1" class="form-control" [(ngModel)] ="tweet"></textarea></div>
+    <div class="col-1"><button style="width: 100%;" class="btn btn-outline-secondary" (click)="send()">Run AI</button></div>
+  </div>
+  <div class="row" style="margin-top: 20px;" *ngIf="twitterSentiments.length > 0">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h4>Last Requests: </h4>
+      <table class="table table-striped">
+        <thead  >
+          <tr style="background-color: #2f2f2f; color: white">
+            <th scope="col">Tweet</th>
+            <th scope="col">Sentiment</th>
+            <th scope="col">Probability</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let sentiment of twitterSentiments">
+            <td>{{sentiment.tweet}}</td>
+            <td *ngIf="sentiment.airline_sentiment_predictions === 'positive'" style="color: green;"><i class="fas fa-check"></i></td>
+            <td *ngIf="sentiment.airline_sentiment_predictions === 'negative'" style="color: red;"><i class="fas fa-times-circle"></i></td>
+            <td *ngIf="isUnk(sentiment)" style="color: orange;">
+              <i class="fas fa-minus"></i> Unknown
+            </td>
+            <td>{{sentiment.airline_sentiment_probability | percent}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

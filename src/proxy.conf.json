@@ -1,0 +1,7 @@
+{
+    "/predict": {
+        "target": "http://93.90.207.105:8000",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
