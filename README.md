@@ -5,5 +5,5 @@ A simple Frontend for an AI which is analysing the entered text and then giving 
 # Backendfolder
 Includes files, framework details and the model files from ludwig
 
-# Frontend
-Angularapplication with ludwig running the application as mentioned above
+# Frontendfolder
+Angular application with ludwig running the application as mentioned above
