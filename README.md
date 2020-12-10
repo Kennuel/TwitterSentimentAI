@@ -8,4 +8,5 @@ Includes files, framework details and the model files from ludwig, can be starte
 
 # Frontendfolder
 Angular application with ludwig running the application as mentioned above.
-Can be started with ```ng serve```
+Can be started with
+```ng serve```
